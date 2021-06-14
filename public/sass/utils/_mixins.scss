@@ -1,0 +1,11 @@
+@mixin desktop-only {
+    @media screen and (min-width: map-get($breakpoint, desktop )) {
+        @content;
+    }
+}
+
+@mixin bigscreen-only {
+    @media screen and (min-width: map-get($breakpoint, bigscreen )) {
+        @content;
+    }
+}
