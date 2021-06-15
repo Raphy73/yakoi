@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Inscription</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>Vous avez déjà un compte ? <a href="{{ path("app_login") }}">Connectez-vous !</a></p>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                {{ form_start(form) }}
+                {{ form_row(form.firstName) }}
+                {{ form_row(form.name) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.password) }}
+                <button type="submit" class="btn btn-primary">Inscription</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

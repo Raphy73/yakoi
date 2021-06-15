@@ -1,0 +1,49 @@
+.best-products {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.card-category {
+  height: 180px;
+  min-width: 134px;
+  border-radius: 14px;
+  padding: 10px;
+  margin-right: 20px;
+  position: relative;
+  h3 {
+    font-size: 14px;
+    color: #ffffff;
+  }
+  img {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.card-category.pink-category {
+  background-color: $pink;
+}
+
+.card-category.green-category {
+  background-color: $green;
+}
+
+.card-category.blue-category {
+  background-color: $blue;
+}
+
+.card-category.yellow-category {
+  background-color: $yellow;
+}
+
+.card-category.red-category {
+  background-color: $red;
+}

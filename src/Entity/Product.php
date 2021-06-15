@@ -64,9 +64,15 @@ class Product
      */
     private $Brand;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="favoritesProducts")
+     */
+    private $users;
+
     public function __construct()
     {
         $this->Category = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -190,6 +196,33 @@ class Product
     public function setBrand(?Brand $Brand): self
     {
         $this->Brand = $Brand;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addFavoritesProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            $user->removeFavoritesProduct($this);
+        }
 
         return $this;
     }

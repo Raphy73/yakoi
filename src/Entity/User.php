@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -35,6 +37,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $firstName;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Product::class, inversedBy="users")
+     */
+    private $favoritesProducts;
+
+    public function __construct()
+    {
+        $this->favoritesProducts = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -120,5 +142,53 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getFirstName(): ?string
+    {
+        return $this->firstName;
+    }
+
+    public function setFirstName(string $firstName): self
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Product[]
+     */
+    public function getFavoritesProducts(): Collection
+    {
+        return $this->favoritesProducts;
+    }
+
+    public function addFavoritesProduct(Product $favoritesProduct): self
+    {
+        if (!$this->favoritesProducts->contains($favoritesProduct)) {
+            $this->favoritesProducts[] = $favoritesProduct;
+        }
+
+        return $this;
+    }
+
+    public function removeFavoritesProduct(Product $favoritesProduct): self
+    {
+        $this->favoritesProducts->removeElement($favoritesProduct);
+
+        return $this;
     }
 }

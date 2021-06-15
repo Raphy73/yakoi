@@ -1,0 +1,7 @@
+.form-control {
+  border: none;
+  width: 96%;
+  @include bigscreen-only {
+    width: 98%;
+  }
+}
