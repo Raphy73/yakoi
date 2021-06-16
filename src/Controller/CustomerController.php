@@ -42,4 +42,14 @@ class CustomerController extends AbstractController
             'form' => $form->createView(),
         ));
     }
+
+    /**
+     * @Route("/produit/{id<\d+>}", name="product")
+     */
+    public function product($id)
+    {
+        return $this->render('customer/product-page.html.twig', [
+
+        ]);
+    }
 }

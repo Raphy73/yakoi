@@ -3,6 +3,13 @@
 {% block body %}
     <div class="container">
         <div class="row">
+            <div class="d-flex justify-content-center">
+                <a href="{{ path('home_customer') }}"><img src="{{ asset('/public/images/logo-yakoa.svg') }}" class="w-100" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
             <input class="form-control bg-light my-3 mx-auto" list="datalistOptions" id="exampleDataList" placeholder="Rechercher">
             <datalist id="datalistOptions">
                 <option value="San Francisco">
@@ -15,9 +22,11 @@
             <div class="best-products">
                 <div class="card-category pink-category mt-3">
                     <h3>Lave-linge Serie 8 avec i-DOS</h3>
+                    <img src="https://www.raphaelbeaudet.fr/photos-partiel/machine-a-laver-petite.png" alt="Lave linge">
                 </div>
-                <div class="card-category green-category mt-3">
+                <div class="card-category green-category mt-3 product2">
                     <h3>Réfrigérateur combiné No Frost</h3>
+                    <img src="https://www.raphaelbeaudet.fr/photos-partiel/MCSA02948015_J1502_2264417_KGN39HIEP_def%201.png" alt="Frigo">
                 </div>
                 <div class="card-category red-category mt-3">
                     <h3>Réfrigérateur combiné No Frost</h3>
@@ -49,12 +58,13 @@
             </div>
             <h2 class="h4 mt-3">Catégories</h2>
             <div class="best-products">
-                <div class="card-category blue-category mt-3">
+                <div class="card-category blue-category mt-3 product3">
                     <h3>Lave-linge Serie 8 avec i-DOS</h3>
-                    <img src="https://www.raphaelbeaudet.fr/photos-partiel/15696566_WAX32KH1FF_STP_def%201.png" alt="Lave linge">
+                    <img src="https://www.raphaelbeaudet.fr/photos-partiel/fr-rs8000nc--h-389383-rs6ha8880s9-ef-447035632%201.png" alt="">
                 </div>
                 <div class="card-category yellow-category mt-3">
                     <h3>Réfrigérateur combiné No Frost</h3>
+                    <img src="https://www.raphaelbeaudet.fr/photos-partiel/fr-uhdtv-ru7305-ue65ru7305kxxc-frontblack-151032386%201.png" alt="TV">
                 </div>
                 <div class="card-category red-category mt-3">
                     <h3>Réfrigérateur combiné No Frost</h3>
@@ -89,6 +99,25 @@
                     <h3>Réfrigérateur combiné No Frost</h3>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="container last-container">
+        <div class="row">
+            <nav class="col navbar navbar-expand bg-light navbar-light w-75">
+                <div id="navbarContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav d-flex justify-content-around w-100">
+                        <li class="nav-item">
+                            <a class="nav-link" href=""><img src="{{ asset("/public/images/icons/Home.svg") }}" alt="House icon"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=""><img src="{{ asset("/public/images/icons/Search.svg") }}" alt="Search icon"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=""><img src="{{ asset("/public/images/icons/User_cicrle.svg") }}" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
     </div>
 {% endblock %}

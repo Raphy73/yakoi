@@ -1,3 +1,10 @@
 nav {
   border-radius: 14px;
+  position: fixed!important;
+  bottom: 50px;
+  left: 12%;
+}
+
+.nav-item.back {
+  padding-top: 5px;
 }

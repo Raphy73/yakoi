@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <header class="header-product">
+        <img src="https://www.raphaelbeaudet.fr/photos-partiel/bosh.png" alt="Bosh">
+        <h1>Page produit</h1>
+        <img src="https://www.raphaelbeaudet.fr/photos-partiel/15696566_WAX32KH1FF_STP_def%201.png" alt="Machine à laver">
+    </header>
+    <div class="container product-page">
+        <div class="row">
+            <div class="col">
+                <p class="yakoi-score fw-bold mt-3">YAKOI SCORE : </p>
+                <img class="d-block mx-auto" src="https://www.raphaelbeaudet.fr/photos-partiel/A.png" alt="A">
+                <!-- Button trigger modal -->
+                <p class="text-center my-3"><a class="more-about-notation" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">voir les critères de notation</a></p>
+
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <img class="d-block mx-auto" src="https://www.raphaelbeaudet.fr/photos-partiel/etiquette-energetique.png" alt="Étiquette énergétique">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Button trigger modal -->
+                <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-pink" data-bs-toggle="modal" data-bs-target="#etiquette">
+                        Étiquette-énergie
+                    </button>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="etiquette" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-center" id="staticBackdropLabel">Notation des produits</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h4>Méthode de notation</h4>
+                                <p>COmment sont notés les produits</p>
+                                <img class="my-3 d-block mx-auto" src="{{ asset("/public/images/Frame9.svg") }}" alt="">
+                                <p class="fw-bold">La méthode de notation est construite sur trois crièteres</p>
+                                <p class="fw-bold mt-4">1 - L’indice de réparabilité</p>
+                                <p class="tag-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.</p>
+                                <img class="d-block mx-auto" src="{{ asset("/public/images/note.png") }}" alt="">
+                                <p class="fw-bold mt-3">2 - Consommation énergétique</p>
+                                <p class="tag-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.</p>
+                                <img class="d-block mx-auto" src="{{ asset("/public/images/note-abc.png") }}" alt="">
+                                <p class="fw-bold mt-3">3 - Provenance des matériaux </p>
+                                <p class="tag-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.</p>
+                                <img class="d-block mx-auto" src="{{ asset("/public/images/france-flag.png") }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-more-informations">
+                    <p class="mt-4">Les caractéristiques principales du lave-linge sont :</p>
+                    <ul>
+                        <li>capacité de lavage du tambour : 70 L</li>
+                        <li>origine de fabrication : Allemagne </li>
+                        <li>moteur à induction : Classique</li>
+                        <li>très grande capacité (10,0 kg)</li>
+                        <li>ultra-silencieux (74 dB) </li>
+                        <li>très économique classe énergétique B </li>
+                        <li>indice de réparabilité 7,7 /10 </li>
+                        <li>consommation d'énergie annuelle : 71 euros</li>
+                        <li>consommation d'eau annuelle : 12100 L</li>
+                    </ul>
+                    <p class="yakoi-score fw-bold mt-3">Meilleurs prix</p>
+                    <div class="price">
+                        <img src="{{ asset('/public/images/boulanger.png') }}" alt="Boulanger">
+                        <p>878€</p>
+                    </div>
+                    <div class="price">
+                        <img src="{{ asset('/public/images/cdiscount.png') }}" alt="">
+                        <p>989€</p>
+                    </div>
+                    <div class="price">
+                        <img src="{{ asset('/public/images/conforama.png') }}" alt="Conforama">
+                        <p>999€</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container last-container">
+        <div class="row">
+            <nav class="col navbar navbar-expand bg-light navbar-light w-75">
+                <div id="navbarContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav d-flex justify-content-around w-100">
+                        <li class="nav-item back">
+                            <a class="nav-link" href=""><img src="{{ asset("/public/images/icons/back.svg") }}" alt="House icon"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=""><img src="{{ asset("/public/images/icons/Search.svg") }}" alt="Search icon"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=""><img src="{{ asset("/public/images/icons/User_cicrle.svg") }}" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+{% endblock %}
