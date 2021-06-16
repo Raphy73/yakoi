@@ -35,7 +35,7 @@ class CustomerController extends AbstractController
             $entityManager->persist($signIn);
             $entityManager->flush();
 
-            return $this->redirectToRoute("home_customer");
+            return $this->redirectToRoute("app_login");
         }
 
         return $this->render('customer/signin.html.twig', array(

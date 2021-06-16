@@ -1,4 +1,4 @@
-.login-page {
+.admin-area {
   height: 100vh;
   background: url("../../public/images/login-bg.svg") no-repeat;
   background-size: cover;
@@ -10,13 +10,7 @@
     border: 4px solid #7B7B7B;
     border-radius: 8px;
   }
-}
-
-.container-form {
-  width: 90%;
-  padding: 40px 20px;
-  background-color: #ffffff;
-  border-radius: 18px;
-  margin: 0 auto;
-  max-width: 392px;
+  label {
+    display: none;
+  }
 }
