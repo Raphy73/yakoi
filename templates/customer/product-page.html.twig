@@ -1,16 +1,48 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <header class="header-product">
-        <img src="https://www.raphaelbeaudet.fr/photos-partiel/bosh.png" alt="Bosh">
-        <h1>Page produit</h1>
-        <img src="https://www.raphaelbeaudet.fr/photos-partiel/15696566_WAX32KH1FF_STP_def%201.png" alt="Machine à laver">
+    <header class="header-product"
+            {% if product.category.id == 3 %}
+                style="background: url('https://www.raphaelbeaudet.fr/wp-content/uploads/2021/06/Informatique.svg') no-repeat;"
+            {% endif %}
+            {% if product.category.id == 6 %}
+                style="background: url('https://www.raphaelbeaudet.fr/photos-partiel/pink-category.svg') no-repeat;"
+            {% endif %}
+            {% if product.category.id == 7 %}
+                style="background: url('https://www.raphaelbeaudet.fr/wp-content/uploads/2021/06/TV.svg') no-repeat;"
+            {% endif %}
+            {% if product.category.id == 8 %}
+                style="background: url('https://www.raphaelbeaudet.fr/wp-content/uploads/2021/06/Eclairage.svg') no-repeat;"
+            {% endif %}
+            {% if product.category.id == 9 %}
+                style="background: url('https://www.raphaelbeaudet.fr/wp-content/uploads/2021/06/Petit-Electro.svg') no-repeat;"
+            {% endif %}
+    >
+        <img src="{{ asset('/public/images/bosh.svg') }}" alt="Bosh">
+        <h1>{{ product.name }}</h1>
+        {% if product.image %}
+        <img src="{{ product.image }}" alt="">
+        {% endif %}
     </header>
     <div class="container product-page">
         <div class="row">
             <div class="col">
                 <p class="yakoi-score fw-bold mt-3">YAKOI SCORE : </p>
-                <img class="d-block mx-auto" src="https://www.raphaelbeaudet.fr/photos-partiel/A.png" alt="A">
+                {% if product.note == "A" or product.note == "a" %}
+                    <img width="63px" height="68px" class="d-block mx-auto" src="https://www.raphaelbeaudet.fr/photos-partiel/A.png" alt="A">
+                {% endif %}
+                {% if product.note == "B" or product.note == "b" %}
+                    <img width="63px" height="68px" class="d-block mx-auto" src="{{ asset("/public/images/score-b.svg") }}" alt="B">
+                {% endif %}
+                {% if product.note == "C" or product.note == "c" %}
+                    <img width="63px" height="68px" class="d-block mx-auto" src="{{ asset("/public/images/score-c.svg") }}" alt="C">
+                {% endif %}
+                {% if product.note == "D" or product.note == "d" %}
+                    <img width="63px" height="68px" class="d-block mx-auto" src="{{ asset("/public/images/score-d.svg") }}" alt="D">
+                {% endif %}
+                {% if product.note == "E" or product.note == "e" %}
+                    <img width="63px" height="68px" class="d-block mx-auto" src="{{ asset("/public/images/score-e.svg") }}" alt="E">
+                {% endif %}
                 <!-- Button trigger modal -->
                 <p class="text-center my-3"><a class="more-about-notation" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">voir les critères de notation</a></p>
 
@@ -62,29 +94,23 @@
                     </div>
                 </div>
                 <div class="product-more-informations">
-                    <p class="mt-4">Les caractéristiques principales du lave-linge sont :</p>
+                    <p class="mt-4">Caractéristiques principales du produit :</p>
                     <ul>
-                        <li>capacité de lavage du tambour : 70 L</li>
-                        <li>origine de fabrication : Allemagne </li>
-                        <li>moteur à induction : Classique</li>
-                        <li>très grande capacité (10,0 kg)</li>
-                        <li>ultra-silencieux (74 dB) </li>
-                        <li>très économique classe énergétique B </li>
-                        <li>indice de réparabilité 7,7 /10 </li>
-                        <li>consommation d'énergie annuelle : 71 euros</li>
-                        <li>consommation d'eau annuelle : 12100 L</li>
+                        <li>Origine du produit : {{ product.country }}</li>
+                        <li>Indice de réparabilité : {{ product.reparabilite }}</li>
+                        <li>Bon à savoir : grande capacité de lavage (70 L), le moteur à induction est classique et sa consommation d'énergie annuelle est de 70€. Nous recommandons ce produit. </li>
                     </ul>
                     <p class="yakoi-score fw-bold mt-3">Meilleurs prix</p>
                     <div class="price">
-                        <img src="{{ asset('/public/images/boulanger.png') }}" alt="Boulanger">
+                        <img src="{{ asset('/public/images/boulanger.svg') }}" alt="Boulanger">
                         <p>878€</p>
                     </div>
                     <div class="price">
-                        <img src="{{ asset('/public/images/cdiscount.png') }}" alt="">
+                        <img src="{{ asset('/public/images/cdiscount.svg') }}" alt="">
                         <p>989€</p>
                     </div>
                     <div class="price">
-                        <img src="{{ asset('/public/images/conforama.png') }}" alt="Conforama">
+                        <img src="{{ asset('/public/images/conforama.svg') }}" alt="Conforama">
                         <p>999€</p>
                     </div>
                 </div>

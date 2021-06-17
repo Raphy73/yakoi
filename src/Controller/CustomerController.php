@@ -1,6 +1,8 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\Availability;
+use App\Entity\Product;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\UserType;
@@ -12,10 +14,13 @@ class CustomerController extends AbstractController
     /**
      * @Route("/", name="home_customer")
      */
-    public function customerHomepage()
+    public function customerHomepage(EntityManagerInterface $entityManager)
     {
-        return $this->render('customer/homepage.html.twig', [
+        $repository = $entityManager->getRepository(Product::class);
+        $products = $repository->findAllProducts();
 
+        return $this->render('customer/homepage.html.twig', [
+            'products' => $products,
         ]);
     }
 
@@ -44,12 +49,15 @@ class CustomerController extends AbstractController
     }
 
     /**
-     * @Route("/produit/{id<\d+>}", name="product")
+     * @Route("/produit/{id<\d+>}", name="product", methods={"GET"})
      */
-    public function product($id)
+    public function product($id, EntityManagerInterface $entityManager)
     {
-        return $this->render('customer/product-page.html.twig', [
+        $repository = $entityManager->getRepository(Product::class);
+        $product = $repository->find($id);
 
+        return $this->render('customer/product-page.html.twig', [
+            'product' => $product,
         ]);
     }
 }

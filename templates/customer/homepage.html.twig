@@ -12,91 +12,43 @@
         <div class="row">
             <input class="form-control bg-light my-3 mx-auto" list="datalistOptions" id="exampleDataList" placeholder="Rechercher">
             <datalist id="datalistOptions">
-                <option value="San Francisco">
-                <option value="New York">
-                <option value="Seattle">
-                <option value="Los Angeles">
-                <option value="Chicago">
+                <option value="iPhone">
+                <option value="PlayStation">
+                <option value="Frigo">
+                <option value="Aspirateur">
             </datalist>
             <h2 class="h4">Sélection du mois</h2>
             <div class="best-products">
-                <div class="card-category pink-category mt-3">
-                    <h3>Lave-linge Serie 8 avec i-DOS</h3>
-                    <img src="https://www.raphaelbeaudet.fr/photos-partiel/machine-a-laver-petite.png" alt="Lave linge">
-                </div>
-                <div class="card-category green-category mt-3 product2">
-                    <h3>Réfrigérateur combiné No Frost</h3>
-                    <img src="https://www.raphaelbeaudet.fr/photos-partiel/MCSA02948015_J1502_2264417_KGN39HIEP_def%201.png" alt="Frigo">
-                </div>
-                <div class="card-category red-category mt-3">
-                    <h3>Réfrigérateur combiné No Frost</h3>
-                </div>
-                <div class="card-category blue-category mt-3">
-                    <h3>Lave-linge Serie 8 avec i-DOS</h3>
-                </div>
-                <div class="card-category yellow-category mt-3">
-                    <h3>Réfrigérateur combiné No Frost</h3>
-                </div>
-                <div class="card-category red-category mt-3">
-                    <h3>Réfrigérateur combiné No Frost</h3>
-                </div>
-                <div class="card-category blue-category mt-3">
-                    <h3>Lave-linge Serie 8 avec i-DOS</h3>
-                </div>
-                <div class="card-category yellow-category mt-3">
-                    <h3>Réfrigérateur combiné No Frost</h3>
-                </div>
-                <div class="card-category red-category mt-3">
-                    <h3>Réfrigérateur combiné No Frost</h3>
-                </div>
-                <div class="card-category blue-category mt-3">
-                    <h3>Lave-linge Serie 8 avec i-DOS</h3>
-                </div>
-                <div class="card-category yellow-category mt-3">
-                    <h3>Réfrigérateur combiné No Frost</h3>
-                </div>
+                {% for product in products %}
+                    <a href="{{ path('product', { id: product.id }) }}">
+                        <div class="card-category {% if product.category.id == 6 %} pink-category {% endif %} {% if product.category.id == 3 %} red-category {% endif %} {% if product.category.id == 7 %} blue-category {% endif %} {% if product.category.id == 8 %} yellow-category {% endif %} {% if product.category.id == 9 %} green-category {% endif %} mt-3">
+                            <h3>{{ product.name }}</h3>
+                            <img src="{{ product.image }}" alt="Lave linge">
+                        </div>
+                    </a>
+                {% endfor %}
             </div>
             <h2 class="h4 mt-3">Catégories</h2>
             <div class="best-products">
-                <div class="card-category blue-category mt-3 product3">
-                    <h3>Lave-linge Serie 8 avec i-DOS</h3>
-                    <img src="https://www.raphaelbeaudet.fr/photos-partiel/fr-rs8000nc--h-389383-rs6ha8880s9-ef-447035632%201.png" alt="">
+                <div class="card-category mt-3 category1" style="background: url('https://www.raphaelbeaudet.fr/wp-content/uploads/2021/06/petit-electromenager.svg') no-repeat;">
+                    <h3>Petit électroménager</h3>
+                    <img src="https://www.raphaelbeaudet.fr/wp-content/uploads/2021/06/cafetiere.png" alt="">
                 </div>
-                <div class="card-category yellow-category mt-3">
-                    <h3>Réfrigérateur combiné No Frost</h3>
-                    <img src="https://www.raphaelbeaudet.fr/photos-partiel/fr-uhdtv-ru7305-ue65ru7305kxxc-frontblack-151032386%201.png" alt="TV">
+                <div class="card-category yellow-category mt-3 category2" style="background: url('https://www.raphaelbeaudet.fr/wp-content/uploads/2021/06/informatique-category.svg') no-repeat;">
+                    <h3>Multimédia</h3>
+                    <img src="https://www.raphaelbeaudet.fr/wp-content/uploads/2021/06/mac.png" alt="">
                 </div>
-                <div class="card-category red-category mt-3">
-                    <h3>Réfrigérateur combiné No Frost</h3>
+                <div class="card-category red-category mt-3" style="background: url('https://www.raphaelbeaudet.fr/wp-content/uploads/2021/06/eclairage-category.svg') no-repeat;">
+                    <h3>Éclairage</h3>
+                    <img src="https://www.raphaelbeaudet.fr/wp-content/uploads/2021/06/lumiere.png" alt="">
                 </div>
-                <div class="card-category blue-category mt-3">
-                    <h3>Lave-linge Serie 8 avec i-DOS</h3>
+                <div class="card-category blue-category mt-3 category4" style="background: url('https://www.raphaelbeaudet.fr/wp-content/uploads/2021/06/electromenager.svg') no-repeat;">
+                    <h3>Électroménager</h3>
+                    <img src="https://www.raphaelbeaudet.fr/wp-content/uploads/2021/06/frigo.png" alt="">
                 </div>
-                <div class="card-category yellow-category mt-3">
-                    <h3>Réfrigérateur combiné No Frost</h3>
-                </div>
-                <div class="card-category red-category mt-3">
-                    <h3>Réfrigérateur combiné No Frost</h3>
-                </div>
-                <div class="card-category blue-category mt-3">
-                    <h3>Lave-linge Serie 8 avec i-DOS</h3>
-                </div>
-                <div class="card-category yellow-category mt-3">
-                    <h3>Réfrigérateur combiné No Frost</h3>
-                </div>
-                <div class="card-category red-category mt-3">
-                    <h3>Réfrigérateur combiné No Frost</h3>
-                </div>
-                <div class="card-category red-category mt-3">
-                    <h3>Réfrigérateur combiné No Frost</h3>
-                </div>                <div class="card-category blue-category mt-3">
-                    <h3>Lave-linge Serie 8 avec i-DOS</h3>
-                </div>
-                <div class="card-category yellow-category mt-3">
-                    <h3>Réfrigérateur combiné No Frost</h3>
-                </div>
-                <div class="card-category red-category mt-3">
-                    <h3>Réfrigérateur combiné No Frost</h3>
+                <div class="card-category yellow-category mt-3 category5" style="background: url('https://www.raphaelbeaudet.fr/wp-content/uploads/2021/06/tv-audio.svg') no-repeat;">
+                    <h3>TV & Audio</h3>
+                    <img src="https://www.raphaelbeaudet.fr/wp-content/uploads/2021/06/television.png" alt="">
                 </div>
             </div>
         </div>

@@ -9,11 +9,19 @@
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  img {
+    width: 115px;
+    max-height: 150px;
+  }
+  a {
+    text-decoration: none;
+  }
 }
 
 .card-category {
   height: 180px;
   min-width: 134px;
+  max-width: 134px;
   border-radius: 14px;
   padding: 10px;
   margin-right: 20px;
@@ -29,14 +37,22 @@
   }
 }
 
-.product2 {
-  img {
-    left: 30px;
-  }
-}
-.product3 {
+.category2 {
   img {
     left: 25px;
+  }
+}
+
+.category5 {
+  img {
+    left: 25px;
+  }
+}
+
+.category4 {
+  img {
+    left: 30px;
+    width: 70px;
   }
 }
 
