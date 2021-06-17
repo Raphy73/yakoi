@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Yakoi | Administrateur | Catégorie{% endblock %}
+{% block title %}Yakoi | Administrateur | Catégories{% endblock %}
 
 {% block body %}
     <div class="admin-area w-100">
@@ -40,26 +40,7 @@
                             <a class="nav-link" href="{{ path("home_customer") }}#exampleDataList"><img src="{{ asset("/public/images/icons/Search.svg") }}" alt="Search icon"></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href=""><img src="{{ asset("/public/images/icons/User_cicrle.svg") }}" alt=""></a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <nav class="col navbar navbar-expand bg-light navbar-light w-75">
-                <div id="navbarContent" class="collapse navbar-collapse">
-                    <ul class="navbar-nav d-flex justify-content-around w-100">
-                        <li class="nav-item back">
-                            <a class="nav-link" href="{{ path("home_customer") }}"><img src="{{ asset("/public/images/icons/back.svg") }}" alt="House icon"></a>
-                        </li>
-                        <li class="nav-item search">
-                            <a class="nav-link" href="{{ path("home_customer") }}#exampleDataList"><img src="{{ asset("/public/images/icons/Search.svg") }}" alt="Search icon"></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href=""><img src="{{ asset("/public/images/icons/User_cicrle.svg") }}" alt=""></a>
+                            <a class="nav-link" href="{{ path("account") }}"><img src="{{ asset("/public/images/icons/User_cicrle.svg") }}" alt=""></a>
                         </li>
                     </ul>
                 </div>

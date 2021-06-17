@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Yakoi | {{ product.name }}{% endblock %}
+
 {% block body %}
     <header class="header-product"
             {% if product.category.id == 3 %}
@@ -129,7 +131,7 @@
                             <a class="nav-link" href="{{ path("home_customer") }}#exampleDataList"><img src="{{ asset("/public/images/icons/Search.svg") }}" alt="Search icon"></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href=""><img src="{{ asset("/public/images/icons/User_cicrle.svg") }}" alt=""></a>
+                            <a class="nav-link" href="{{ path("account") }}"><img src="{{ asset("/public/images/icons/User_cicrle.svg") }}" alt=""></a>
                         </li>
                     </ul>
                 </div>

@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Entity\Availability;
 use App\Entity\Category;
 use App\Entity\Product;
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\UserType;
@@ -77,6 +78,19 @@ class CustomerController extends AbstractController
             'products' => $products,
             'categoryid' => $id,
             'allthecategories' => $categories
+        ]);
+    }
+
+    /**
+     * @Route("/profil", name="account")
+     */
+    public function account(EntityManagerInterface $entityManager)
+    {
+        $repository = $entityManager->getRepository(User::class);
+        $user = $this->getUser();
+
+        return $this->render('customer/account.html.twig', [
+            'user' => $user
         ]);
     }
 }

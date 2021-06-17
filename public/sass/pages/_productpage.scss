@@ -1,11 +1,8 @@
 .header-product {
   background-size: cover;
   height: 381px;
-  width: 100%;
-  @include desktop-only {
-    width: 375px;
-    margin: 0 auto;
-  }
+  width: 375px;
+  margin: 0 auto;
   position: relative;
   h1 {
     color: #ffffff;

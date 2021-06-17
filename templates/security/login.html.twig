@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Yakoi | Connexion{% endblock %}
 
 {% block body %}
     <div class="login-page w-100">
@@ -57,7 +57,7 @@
                             <a class="nav-link" href="{{ path("home_customer") }}#exampleDataList"><img src="{{ asset("/public/images/icons/Search.svg") }}" alt="Search icon"></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href=""><img src="{{ asset("/public/images/icons/User_cicrle.svg") }}" alt=""></a>
+                            <a class="nav-link" href="{{ path("account") }}"><img src="{{ asset("/public/images/icons/User_cicrle.svg") }}" alt=""></a>
                         </li>
                     </ul>
                 </div>

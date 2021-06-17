@@ -48,11 +48,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $firstName;
 
-    public function __construct()
-    {
-
-    }
-
     public function getId(): ?int
     {
         return $this->id;

@@ -1,28 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Yakoi | Inscription{% endblock %}
+{% block title %}Yakoi | Mon compte{% endblock %}
 
 {% block body %}
-    <div class="signin-page w-100">
-        <div class="container container-form">
-            <img class="d-block mx-auto mb-3" src="{{ asset("/public/images/logo-yakoa.svg") }}" alt="">
-            <h1 class="h3 mb-3 font-weight-normal text-center fw-bold">Inscription</h1>
-            {{ form_start(form) }}
-                {{ form_row(form.firstName) }}
-                {{ form_row(form.name) }}
-                {{ form_row(form.email) }}
-                {{ form_row(form.password) }}
-                <button type="submit" class="btn btn-grey mt-4">Inscription</button>
-            {{ form_end(form) }}
+    <header class="header-product" style="background: url('https://www.raphaelbeaudet.fr/wp-content/uploads/2021/06/Informatique.svg') no-repeat;">
+        <h1>{{ user.firstname }}</h1>
+    </header>
+    <div class="container product-page">
+        <div class="row">
+            <div class="col my-5">
+                <p class="text-center"><a class="btn btn-pink" href="{{ path("app_logout") }}">Se déconnecter</a></p>
+            </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container last-container">
         <div class="row">
             <nav class="col navbar navbar-expand bg-light navbar-light w-75">
                 <div id="navbarContent" class="collapse navbar-collapse">
                     <ul class="navbar-nav d-flex justify-content-around w-100">
                         <li class="nav-item back">
-                            <a class="nav-link" href="{{ path("app_login") }}"><img src="{{ asset("/public/images/icons/back.svg") }}" alt="House icon"></a>
+                            <a class="nav-link" href="{{ path("home_customer") }}"><img src="{{ asset("/public/images/icons/back.svg") }}" alt="House icon"></a>
                         </li>
                         <li class="nav-item search">
                             <a class="nav-link" href="{{ path("home_customer") }}#exampleDataList"><img src="{{ asset("/public/images/icons/Search.svg") }}" alt="Search icon"></a>
