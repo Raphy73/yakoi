@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Entity\Availability;
+use App\Entity\Category;
 use App\Entity\Product;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -58,6 +59,24 @@ class CustomerController extends AbstractController
 
         return $this->render('customer/product-page.html.twig', [
             'product' => $product,
+        ]);
+    }
+
+    /**
+     * @Route("/categorie/{id<\d+>}", name="one-category")
+     */
+    public function category(EntityManagerInterface $entityManager, $id)
+    {
+        $repository = $entityManager->getRepository(Product::class);
+        $products = $repository->findAllProducts();
+
+        $repository = $entityManager->getRepository(Category::class);
+        $categories = $repository->findAllCategories();
+
+        return $this->render('customer/category.html.twig', [
+            'products' => $products,
+            'categoryid' => $id,
+            'allthecategories' => $categories
         ]);
     }
 }
