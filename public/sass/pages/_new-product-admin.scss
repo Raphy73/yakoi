@@ -1,0 +1,33 @@
+.new-product-admin {
+  height: 100vh;
+  background: url("../../public/images/login-bg.svg") no-repeat;
+  background-size: cover;
+  padding-top: 100px;
+  .form-control {
+    width: 100%;
+  }
+  input, textarea, select {
+    border: 4px solid #7B7B7B;
+    border-radius: 8px;
+  }
+  label {
+    display: none;
+  }
+  select {
+    background: #ffffff;
+  }
+}
+
+.container-form {
+  width: 90%;
+  padding: 40px 20px;
+  background-color: #ffffff;
+  border-radius: 18px;
+  margin: 0 auto;
+  max-width: 392px;
+  input, textarea, select {
+    width: 100%;
+    margin: 7px auto;
+    height: 35px;
+  }
+}

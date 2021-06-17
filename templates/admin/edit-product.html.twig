@@ -3,35 +3,20 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-    <div class="admin-area w-100">
-        <div class="container container-table container-form">
-            <h1 class="h3 mb-3 font-weight-normal text-center fw-bold">Espace admin</h1>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Marque</th>
-                    <th scope="col">Catégorie</th>
-                    <th scope="col">Modifier</th>
-                    <th scope="col">Supprimer</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for product in products %}
-                <tr>
-                    <th scope="row">{{ product.id }}</th>
-                    <td>{{ product.name }}</td>
-                    <td>{{ product.brand }}</td>
-                    <td>{{ product.category.name }}</td>
-                    <td><a href="{{ path('edit_product', { id: product.id }) }}">Modifier</a></td>
-                    <td><a href="{{ path('delete_product', { id: product.id }) }}">Supprimer</a></td>
-                </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-            <a href="{{ path("ajouter-produit") }}" class="btn btn-grey mt-4">Ajouter un produit</a>
-            <a href="{{ path("categories") }}" class="btn btn-grey mt-4">Gérer les catégories</a>
+    <div class="admin-area new-product-admin w-100">
+        <div class="container container-form">
+            <h1 class="h3 mb-3 font-weight-normal text-center fw-bold">Ajouter un nouveau produit</h1>
+            {{ form_start(form) }}
+                {{ form_row(form.name) }}
+                {{ form_row(form.note) }}
+                {{ form_row(form.description) }}
+                {{ form_row(form.reparabilite) }}
+                {{ form_row(form.coutenergetique) }}
+                {{ form_row(form.country) }}
+                {{ form_row(form.brand) }}
+                {{ form_row(form.Category) }}
+                <button type="submit" class="btn btn-grey mt-4">Modifier le produit</button>
+            {{ form_end(form) }}
         </div>
     </div>
     <div class="container">
@@ -40,7 +25,7 @@
                 <div id="navbarContent" class="collapse navbar-collapse">
                     <ul class="navbar-nav d-flex justify-content-around w-100">
                         <li class="nav-item back">
-                            <a class="nav-link" href="{{ path("home_customer") }}"><img src="{{ asset("/public/images/icons/back.svg") }}" alt="House icon"></a>
+                            <a class="nav-link" href="{{ path("admin") }}"><img src="{{ asset("/public/images/icons/back.svg") }}" alt="House icon"></a>
                         </li>
                         <li class="nav-item search">
                             <a class="nav-link" href="{{ path("home_customer") }}#exampleDataList"><img src="{{ asset("/public/images/icons/Search.svg") }}" alt="Search icon"></a>
@@ -59,7 +44,7 @@
                 <div id="navbarContent" class="collapse navbar-collapse">
                     <ul class="navbar-nav d-flex justify-content-around w-100">
                         <li class="nav-item back">
-                            <a class="nav-link" href="{{ path("home_customer") }}"><img src="{{ asset("/public/images/icons/back.svg") }}" alt="House icon"></a>
+                            <a class="nav-link" href="{{ path("admin") }}"><img src="{{ asset("/public/images/icons/back.svg") }}" alt="House icon"></a>
                         </li>
                         <li class="nav-item search">
                             <a class="nav-link" href="{{ path("home_customer") }}#exampleDataList"><img src="{{ asset("/public/images/icons/Search.svg") }}" alt="Search icon"></a>

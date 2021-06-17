@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,209 +18,142 @@ class Product
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
-    private $Reference;
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Name;
+    private $note;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="text", nullable=true)
      */
-    private $Note;
+    private $description;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="integer", nullable=true)
      */
-    private $Description;
+    private $reparabilite;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $Repairability;
+    private $coutenergetique;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $RawMaterial;
+    private $country;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Country;
+    private $brand;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="products")
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="products")
      */
     private $Category;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Brand::class, inversedBy="products")
-     */
-    private $Brand;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="favoritesProducts")
-     */
-    private $users;
-
-    public function __construct()
-    {
-        $this->Category = new ArrayCollection();
-        $this->users = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getReference(): ?int
-    {
-        return $this->Reference;
-    }
-
-    public function setReference(int $Reference): self
-    {
-        $this->Reference = $Reference;
-
-        return $this;
-    }
-
     public function getName(): ?string
     {
-        return $this->Name;
+        return $this->name;
     }
 
-    public function setName(string $Name): self
+    public function setName(string $name): self
     {
-        $this->Name = $Name;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getNote(): ?int
+    public function getNote(): ?string
     {
-        return $this->Note;
+        return $this->note;
     }
 
-    public function setNote(int $Note): self
+    public function setNote(string $note): self
     {
-        $this->Note = $Note;
+        $this->note = $note;
 
         return $this;
     }
 
     public function getDescription(): ?string
     {
-        return $this->Description;
+        return $this->description;
     }
 
-    public function setDescription(string $Description): self
+    public function setDescription(?string $description): self
     {
-        $this->Description = $Description;
+        $this->description = $description;
 
         return $this;
     }
 
-    public function getRepairability(): ?int
+    public function getReparabilite(): ?int
     {
-        return $this->Repairability;
+        return $this->reparabilite;
     }
 
-    public function setRepairability(int $Repairability): self
+    public function setReparabilite(?int $reparabilite): self
     {
-        $this->Repairability = $Repairability;
+        $this->reparabilite = $reparabilite;
 
         return $this;
     }
 
-    public function getRawMaterial(): ?string
+    public function getCoutenergetique(): ?string
     {
-        return $this->RawMaterial;
+        return $this->coutenergetique;
     }
 
-    public function setRawMaterial(string $RawMaterial): self
+    public function setCoutenergetique(?string $coutenergetique): self
     {
-        $this->RawMaterial = $RawMaterial;
+        $this->coutenergetique = $coutenergetique;
 
         return $this;
     }
 
     public function getCountry(): ?string
     {
-        return $this->Country;
+        return $this->country;
     }
 
-    public function setCountry(string $Country): self
+    public function setCountry(string $country): self
     {
-        $this->Country = $Country;
+        $this->country = $country;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Category[]
-     */
-    public function getCategory(): Collection
+    public function getBrand(): ?string
+    {
+        return $this->brand;
+    }
+
+    public function setBrand(string $brand): self
+    {
+        $this->brand = $brand;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
     {
         return $this->Category;
     }
 
-    public function addCategory(Category $category): self
+    public function setCategory(?Category $Category): self
     {
-        if (!$this->Category->contains($category)) {
-            $this->Category[] = $category;
-        }
-
-        return $this;
-    }
-
-    public function removeCategory(Category $category): self
-    {
-        $this->Category->removeElement($category);
-
-        return $this;
-    }
-
-    public function getBrand(): ?Brand
-    {
-        return $this->Brand;
-    }
-
-    public function setBrand(?Brand $Brand): self
-    {
-        $this->Brand = $Brand;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|User[]
-     */
-    public function getUsers(): Collection
-    {
-        return $this->users;
-    }
-
-    public function addUser(User $user): self
-    {
-        if (!$this->users->contains($user)) {
-            $this->users[] = $user;
-            $user->addFavoritesProduct($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user): self
-    {
-        if ($this->users->removeElement($user)) {
-            $user->removeFavoritesProduct($this);
-        }
+        $this->Category = $Category;
 
         return $this;
     }

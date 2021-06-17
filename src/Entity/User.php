@@ -48,14 +48,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $firstName;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Product::class, inversedBy="users")
-     */
-    private $favoritesProducts;
-
     public function __construct()
     {
-        $this->favoritesProducts = new ArrayCollection();
+
     }
 
     public function getId(): ?int
@@ -164,30 +159,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setFirstName(string $firstName): self
     {
         $this->firstName = $firstName;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Product[]
-     */
-    public function getFavoritesProducts(): Collection
-    {
-        return $this->favoritesProducts;
-    }
-
-    public function addFavoritesProduct(Product $favoritesProduct): self
-    {
-        if (!$this->favoritesProducts->contains($favoritesProduct)) {
-            $this->favoritesProducts[] = $favoritesProduct;
-        }
-
-        return $this;
-    }
-
-    public function removeFavoritesProduct(Product $favoritesProduct): self
-    {
-        $this->favoritesProducts->removeElement($favoritesProduct);
 
         return $this;
     }
